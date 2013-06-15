@@ -7,6 +7,6 @@
         - @keyword.errors.full_messages.each do |msg|
           %li= msg
 
-  = f.label :keyword
+  -#= f.label :keyword
   = f.text_field :keyword, placeholder: '例: 沖縄'
-  = f.submit 'Save' , class: 'btn btn-primary'
+  = f.submit '追加' , class: 'btn btn-primary'

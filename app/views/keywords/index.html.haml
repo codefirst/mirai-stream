@@ -1,15 +1,16 @@
-%h3 Listing keywords
+-# encoding: utf-8
+%h3 キーワード一覧
 
 %table.table
   %tr
-    %th Keyword
+    %th キーワード
     %th
 
   - @keywords.each do |keyword|
     %tr
       %td= keyword.keyword
-      %td{style: 'text-align: right'}= link_to 'Destroy', keyword, method: :delete, class: 'btn btn-danger', :data => { :confirm => 'Are you sure?' }
+      %td{style: 'text-align: right'}= link_to '削除', keyword, method: :delete, class: 'btn btn-danger', :data => { :confirm => '本当によろしいですか？' }
 
 %br
 
-= link_to 'New Keyword', new_keyword_path, class: 'btn'
+= link_to 'キーワードの追加', new_keyword_path, class: 'btn'
