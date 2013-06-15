@@ -22,7 +22,7 @@
             .slide-title= photo[:title]
             .slide-description= strip_tags(photo[:description])
             .slide-tags
-              - photo[:tags].each do |tag|
+              - photo[:tags].reject(&:ascii_only?).each do |tag|
                 %span.slide-tag= tag
 
     = javascript_include_tag "application"
