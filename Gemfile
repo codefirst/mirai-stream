@@ -13,6 +13,9 @@ end
 group :postgresql do
   gem'pg'
 end
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-flickr'
 
 # Gems used only for assets and not required
 # in production environments by default.
