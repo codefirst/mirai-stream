@@ -18,6 +18,11 @@
     .fluid-container
       #slides
         - @photos.each do|photo|
-          %img{ :style => "background-image: url('#{photo}');" }
+          .slide{ :style => "background-image: url('#{photo[:source]}');" }
+            .slide-title= photo[:title]
+            .slide-description= photo[:description]
+            .slide-tags
+              - photo[:tags].each do |tag|
+                %span.slide-tag= tag
 
     = javascript_include_tag "application"
