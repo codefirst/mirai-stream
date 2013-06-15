@@ -1,3 +1,4 @@
+# encoding: utf-8
 class KeywordsController < ApplicationController
   skip_before_filter :authenticate_user!, only: :welcome
 
@@ -52,7 +53,7 @@ class KeywordsController < ApplicationController
 
     respond_to do |format|
       if @keyword.save
-        format.html { redirect_to @keyword, notice: 'Keyword was successfully created.' }
+        format.html { redirect_to keywords_path, notice: 'キーワードの追加に成功しました。スライドショーを開始してみてください。' }
         format.json { render json: @keyword, status: :created, location: @keyword }
       else
         format.html { render action: "new" }
