@@ -2,7 +2,7 @@ class KeywordsController < ApplicationController
   # GET /keywords
   # GET /keywords.json
   def index
-    @keywords = Keyword.all
+    @keywords = Keyword.where(user_id: current_user)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class KeywordsController < ApplicationController
   # GET /keywords/1
   # GET /keywords/1.json
   def show
-    @keyword = Keyword.find(params[:id])
+    @keyword = Keyword.get(params[:id], current_user)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +25,7 @@ class KeywordsController < ApplicationController
   # GET /keywords/new.json
   def new
     @keyword = Keyword.new
+    @keyword.user = current_user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +35,14 @@ class KeywordsController < ApplicationController
 
   # GET /keywords/1/edit
   def edit
-    @keyword = Keyword.find(params[:id])
+    @keyword = Keyword.get(params[:id], current_user)
   end
 
   # POST /keywords
   # POST /keywords.json
   def create
     @keyword = Keyword.new(params[:keyword])
+    @keyword.user = current_user
 
     respond_to do |format|
       if @keyword.save
@@ -56,7 +58,8 @@ class KeywordsController < ApplicationController
   # PUT /keywords/1
   # PUT /keywords/1.json
   def update
-    @keyword = Keyword.find(params[:id])
+    @keyword = Keyword.get(params[:id], current_user)
+    @keyword.user = current_user
 
     respond_to do |format|
       if @keyword.update_attributes(params[:keyword])
@@ -72,7 +75,7 @@ class KeywordsController < ApplicationController
   # DELETE /keywords/1
   # DELETE /keywords/1.json
   def destroy
-    @keyword = Keyword.find(params[:id])
+    @keyword = Keyword.get(params[:id], current_user)
     @keyword.destroy
 
     respond_to do |format|

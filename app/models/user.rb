@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :omniauthable
 
-  has_many :keywords
+  has_many :keyword
 
   attr_accessible :uid, :name, :nickname, :image_url
 end
