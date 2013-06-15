@@ -1,6 +1,6 @@
 -# encoding: utf-8
 !!! 5
-%html(lang="en")
+%html(lang="jp")
   %head
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
@@ -25,9 +25,9 @@
           = link_to '未来ストリーム', root_path, class: 'brand'
           .container.nav-collapse
             %ul.nav
-              %li= link_to 'キーワード編集', keywords_path
-              %li= link_to "スライドショー開始", slideshow_path, target: '_blank'
-              %li= link_to "ログアウト", destroy_user_session_path
+              %li= ilink_to 'edit', 'キーワード編集', keywords_path
+              %li= ilink_to 'play', "スライドショー開始", slideshow_path, target: '_blank'
+              %li= ilink_to 'signout', "ログアウト", destroy_user_session_path
 
     .container
 
@@ -39,9 +39,9 @@
           .well.sidebar-nav
             %h3 メニュー
             %ul.nav.nav-list
-              %li= link_to 'キーワード編集', keywords_path
-              %li= link_to "スライドショーの開始", slideshow_path, target: '_blank'
-              %li= link_to "ログアウト", destroy_user_session_path
+              %li= ilink_to 'edit', 'キーワード編集', keywords_path
+              %li= ilink_to 'play', "スライドショー開始", slideshow_path, target: '_blank'
+              %li= ilink_to 'signout', "ログアウト", destroy_user_session_path
 
       %footer
         %p Copyright &copy; 2013 codefirst.org

@@ -31,12 +31,12 @@
   = image_tag 'usecase.png'
   .excuse 次の未来を想像するフォトフレーム
 
-  .login-link= link_to "Flickr でログイン", user_omniauth_authorize_path(:flickr), class: 'btn btn-primary btn-large'
+  .login-link= ilink_to 'signin', "Flickr でログイン", user_omniauth_authorize_path(:flickr), class: 'btn btn-primary btn-large'
 
 .row-fluid
   .span4
     %h4 未来ストリームとは
-    %p まだ自分が撮ったことのない未来の写真を表示するデジタルフォトフレームアプリです。
+    %p まだ自分が撮ったことのない未来の写真を表示するデジタルフォトフレームアプリです。写真を見ることで、その場所に行ってみたいという気持ちを強くすることができます。
   .span4
     %h4 撮ったことのない写真とは
     %p

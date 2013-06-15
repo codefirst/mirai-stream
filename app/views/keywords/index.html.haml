@@ -9,7 +9,7 @@
   - @keywords.each do |keyword|
     %tr
       %td= keyword.keyword
-      %td{style: 'text-align: right'}= link_to '削除', keyword, method: :delete, class: 'btn btn-danger', :data => { :confirm => '本当によろしいですか？' }
+      %td{style: 'text-align: right'}= ilink_to 'trash',' 削除', keyword, method: :delete, class: 'btn btn-danger', data: { confirm: '本当によろしいですか？' }
 
 = render 'form'
 
