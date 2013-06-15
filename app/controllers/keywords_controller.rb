@@ -10,6 +10,8 @@ class KeywordsController < ApplicationController
   # GET /keywords.json
   def index
     @keywords = Keyword.where(user_id: current_user)
+    @keyword = Keyword.new
+    @keyword.user = current_user
 
     respond_to do |format|
       format.html # index.html.erb
