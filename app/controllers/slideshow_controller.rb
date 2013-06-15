@@ -9,11 +9,11 @@ class SlideshowController < ApplicationController
       cache_key = "photos_keyword_#{keyword.keyword}"
       cached = Rails.cache.read(cache_key)
       #p "cached for #{keyword.keyword}: #{cached}"
-      if (cached.nil? or
-          [:photos, :cached_at].any?{|k| !cached.key?(k)} or
-          Time.now - cached[:cached_at] > 10 * 60)
+      p "cache hit for #{keyword.keyword}" unless cached.nil?
+      if cached.nil? or !cached.key?(:photos)
         flickr.photos.search(text: keyword.keyword, extras: extras).to_a.tap do |photos|
-          Rails.cache.write(cache_key, {:photos => photos, :cached_at => Time.now})
+          success = Rails.cache.write(cache_key, {:photos => photos})
+          p "cannot write cache for #{keyword.keyword}" unless success
         end
       else
         cached[:photos]
@@ -22,7 +22,7 @@ class SlideshowController < ApplicationController
       begin
         # 2-nd lagrgest photo
         # (1st largeest is original, but it is so big)
-        p photo
+        # p photo
         source = sizes.map{|s| photo[s]}.compact.first
         source ||= flickr.photos.getSizes(photo_id: photo['id'])[-2]['source']
         {

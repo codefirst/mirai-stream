@@ -66,5 +66,5 @@ MiraiStream::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # memcachier
-  config.cache_store = :dalli_store
+  config.cache_store = :dalli_store, {:expires_in => 10.minute, :compress => true}
 end
