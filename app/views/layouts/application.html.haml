@@ -25,12 +25,12 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") MiraiStream
+          = link_to 'MiraiStream', root_path, class: 'brand'
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li= link_to 'Keywords', keywords_path
+              %li= link_to "Start Slideshow", slideshow_path, target: '_blank'
+              %li= link_to "Log out", destroy_user_session_path, method: :delete
 
     .container
 
@@ -43,9 +43,9 @@
             %h3 Sidebar
             %ul.nav.nav-list
               %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li= link_to 'Keywords', keywords_path
+              %li= link_to "Start Slideshow", slideshow_path, target: '_blank'
+              %li= link_to "Log out", destroy_user_session_path, method: :delete
 
       %footer
         %p Copyright &copy; 2013 codefirst.org

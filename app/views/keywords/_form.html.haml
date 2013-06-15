@@ -1,4 +1,5 @@
-= form_for @keyword do |f|
+-# encoding: utf-8
+= form_for @keyword, html: { class: 'form-horizontal' }  do |f|
   - if @keyword.errors.any?
     #error_explanation
       %h2= "#{pluralize(@keyword.errors.count, "error")} prohibited this keyword from being saved:"
@@ -6,8 +7,6 @@
         - @keyword.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :keyword
-    = f.text_field :keyword
-  .actions
-    = f.submit 'Save'
+  = f.label :keyword
+  = f.text_field :keyword, placeholder: '例: 沖縄'
+  = f.submit 'Save' , class: 'btn btn-primary'
