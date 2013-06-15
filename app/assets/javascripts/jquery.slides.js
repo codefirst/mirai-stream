@@ -238,12 +238,12 @@
         zIndex: 0
       });
       width = $element.width();
-      height = (this.options.height / this.options.width) * width;
+      height = $element.height();
       this.options.width = width;
       this.options.height = height;
       return $(".slidesjs-control, .slidesjs-container", $element).css({
-        width: width,
-        height: height
+        width: '100%',
+        height: '100%'
       });
     };
     Plugin.prototype.next = function(effect) {

@@ -21,6 +21,6 @@
     .fluid-container
       #slides
         - @photos.each do|photo|
-          %img{ 'src' => photo }
+          %img{ :style => "background-image: url('#{photo}');" }
 
     = javascript_include_tag "application"
