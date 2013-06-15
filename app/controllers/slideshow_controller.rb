@@ -6,7 +6,18 @@ class SlideshowController < ApplicationController
     sizes = %w(url_l url_c url_z url_n).freeze
     extras = (sizes + %w(description geo tags)).join(',').freeze
     @photos = Keyword.where(user_id: current_user).map{|keyword|
-      flickr.photos.search(text: keyword.keyword, extras: extras).to_a
+      cache_key = "photos_keyword_#{keyword.keyword}"
+      cached = Rails.cache.read(cache_key)
+      #p "cached for #{keyword.keyword}: #{cached}"
+      if (cached.nil? or
+          [:photos, :cached_at].any?{|k| !cached.key?(k)} or
+          Time.now - cached[:cached_at] > 10 * 60)
+        flickr.photos.search(text: keyword.keyword, extras: extras).to_a.tap do |photos|
+          Rails.cache.write(cache_key, {:photos => photos, :cached_at => Time.now})
+        end
+      else
+        cached[:photos]
+      end
     }.flatten.shuffle[0,10].map{|photo|
       begin
         # 2-nd lagrgest photo
