@@ -20,9 +20,7 @@
   %body
     .fluid-container
       #slides
-        %img{ 'src' => 'https://dl.dropboxusercontent.com/u/994859/11_1020yuru_yuri0040.jpg' }
-        %img{ 'src' => 'https://dl.dropboxusercontent.com/u/994859/11_1020yuru_yuri0041.jpg' }
-        %img{ 'src' => 'https://dl.dropboxusercontent.com/u/994859/11_1020yuru_yuri0042.jpg' }
-        %img{ 'src' => 'https://dl.dropboxusercontent.com/u/994859/11_1207yuru_yuri0060.jpg' }
+        - @photos.each do|photo|
+          %img{ 'src' => photo }
 
     = javascript_include_tag "application"
