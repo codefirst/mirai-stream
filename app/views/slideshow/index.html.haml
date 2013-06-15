@@ -20,7 +20,7 @@
         - @photos.each do|photo|
           .slide{ :style => "background-image: url('#{photo[:source]}');" }
             .slide-title= photo[:title]
-            .slide-description= photo[:description]
+            .slide-description= strip_tags(photo[:description])
             .slide-tags
               - photo[:tags].each do |tag|
                 %span.slide-tag= tag
