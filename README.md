@@ -5,6 +5,7 @@
 * 行きたい場所
 * 食べたいもの
 * 会ってみたい人
+
 などのキーワードを登録しておくことで、自分が興味のある写真を表示することができます。
 
 老後の自分は今よりもっとインドアになってしまいそうなので、外出するきっかけを作るためのサービスを目指して開発しました。
@@ -24,7 +25,7 @@
     $ bundle install --path vendor/bundle
     $ bundle exec rake db:migrate
 
-それから以下のコマンドで実行してください。
+それから以下のコマンドを実行してください。
 
     $ export FLICKR_APP_KEY=[Input your Flickr Application ID]
     $ export FLICKR_SECRET=[Input your Flickr Secret Key]
