@@ -1,4 +1,7 @@
 MiraiStream::Application.routes.draw do
+  resources :keywords
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
