@@ -6,8 +6,16 @@ $(function(){
   $("#slides").slidesjs({
     width: 940,
     height: 528,
-    play : { auto: true },
+    play : {
+      auto: true,
+      interval: 15000
+    },
     pagination: { active: false },
-    navigation: { active : false }
+    navigation: { active : false },
+    effect: {
+      slide: {
+        speed: 7500
+      }
+    }
   });
 });
