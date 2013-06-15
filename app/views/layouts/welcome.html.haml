@@ -22,9 +22,12 @@
           %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
             %span.icon-bar
           = link_to '未来ストリーム', root_path, class: 'brand'
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "トップ", root_path
+          - if current_user != nil
+            .container.nav-collapse
+              %ul.nav
+                %li= ilink_to 'edit', 'キーワード編集', keywords_path
+                %li= ilink_to 'play', "スライドショー開始", slideshow_path, target: '_blank'
+                %li= ilink_to 'signout', "ログアウト", destroy_user_session_path
 
     .container
 

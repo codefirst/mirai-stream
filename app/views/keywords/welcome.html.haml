@@ -31,7 +31,8 @@
   = image_tag 'usecase.png'
   .excuse 次の未来を想像するフォトフレーム
 
-  .login-link= ilink_to 'signin', "Flickr でログイン", user_omniauth_authorize_path(:flickr), class: 'btn btn-primary btn-large'
+  - if current_user == nil
+    .login-link= ilink_to 'signin', "Flickr でログイン", user_omniauth_authorize_path(:flickr), class: 'btn btn-primary btn-large'
 
 .row-fluid
   .span4
