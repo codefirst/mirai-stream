@@ -1,5 +1,5 @@
 MiraiStream::Application.routes.draw do
-  get "slideshow/index"
+  get "slideshow", to: 'slideshow#index', as: 'slideshow'
 
   resources :keywords
   get 'keywords/welcome', to: 'keywords#welcome'
