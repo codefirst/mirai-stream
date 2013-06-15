@@ -1,4 +1,6 @@
 MiraiStream::Application.routes.draw do
+  get "slideshow/index"
+
   resources :keywords
 
   devise_for :users, controllers: { omniauth_callbacks: 'authentication' }
