@@ -25,8 +25,8 @@
           = link_to '未来ストリーム', root_path, class: 'brand'
           .container.nav-collapse
             %ul.nav
-              %li= ilink_to 'edit', 'キーワード編集', keywords_path
               %li= ilink_to 'play', "スライドショー開始", slideshow_path, target: '_blank'
+              %li= ilink_to 'edit', 'キーワード編集', keywords_path
               %li= ilink_to 'signout', "ログアウト", destroy_user_session_path
 
     .container
@@ -39,8 +39,8 @@
           .well.sidebar-nav
             %h3 メニュー
             %ul.nav.nav-list
-              %li= ilink_to 'edit', 'キーワード編集', keywords_path
               %li= ilink_to 'play', "スライドショー開始", slideshow_path, target: '_blank'
+              %li= ilink_to 'edit', 'キーワード編集', keywords_path
               %li= ilink_to 'signout', "ログアウト", destroy_user_session_path
 
       %footer
