@@ -3,6 +3,7 @@ MiraiStream::Application.routes.draw do
 
   resources :keywords
   get 'keywords/welcome', to: 'keywords#welcome'
+  get 'keywords', to: 'keywords#index', as: 'user_root'
 
   devise_for :users, controllers: { omniauth_callbacks: 'authentication' }
   devise_scope :user do
