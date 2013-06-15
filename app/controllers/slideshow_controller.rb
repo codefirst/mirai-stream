@@ -18,7 +18,7 @@ class SlideshowController < ApplicationController
       else
         cached[:photos]
       end
-    }.flatten.shuffle[0,10].map{|photo|
+    }.flatten.shuffle[0,(ENV['SLIDESHOW_FILES'].to_i || 10)].map{|photo|
       begin
         # 2-nd lagrgest photo
         # (1st largeest is original, but it is so big)
