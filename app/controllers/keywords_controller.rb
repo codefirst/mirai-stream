@@ -1,4 +1,10 @@
 class KeywordsController < ApplicationController
+  skip_before_filter :authenticate_user!, only: :welcome
+
+  def welcome
+   render layout: "welcome"
+  end
+
   # GET /keywords
   # GET /keywords.json
   def index

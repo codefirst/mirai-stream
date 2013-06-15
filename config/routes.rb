@@ -2,6 +2,7 @@ MiraiStream::Application.routes.draw do
   get "slideshow/index"
 
   resources :keywords
+  get 'keywords/welcome', to: 'keywords#welcome'
 
   devise_for :users, controllers: { omniauth_callbacks: 'authentication' }
   devise_scope :user do
@@ -58,7 +59,7 @@ MiraiStream::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root to: 'keywords#welcome'
 
   # See how all your routes lay out with "rake routes"
 

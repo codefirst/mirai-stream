@@ -1,0 +1,48 @@
+-# encoding: utf-8
+
+:css
+  .excuse {
+    position: absolute;
+    top: 70px;
+    left: 40px;
+    font-size: 30px;
+    color: #444;
+    /*text-shadow: 1px 1px 1px #777;*/
+  }
+
+  .login-link {
+    position: absolute;
+    top: 520px;
+    left: 700px;
+  }
+
+  .big-image {
+    margin-bottom: 45px;
+    position: relative;
+  }
+
+  .big-image img {
+    width: 940px;
+    height: 624px;
+    border-radius: 5px;
+  }
+
+.big-image
+  = image_tag 'usecase.png'
+  .excuse 次の未来を想像するフォトフレーム
+
+  .login-link= link_to "Sign in with Flickr", user_omniauth_authorize_path(:flickr), class: 'btn btn-primary btn-large'
+
+.row-fluid
+  .span4
+    %h4 未来ストリームとは
+    %p まだ自分が撮ったことのない未来の写真を表示するデジタルフォトフレームアプリです。
+  .span4
+    %h4 撮ったことのない写真とは
+    %p
+      行きたい場所、食べたいもの、会ってみたい人
+      などのキーワードを登録しておくことで、自分が興味のある写真を表示することができます。
+  .span4
+    %h4 なぜ作ったか
+    %p 老後の自分は今よりもっとインドアになってしまいそうなので、外出するきっかけを作るためのサービスを目指して開発しました。
+

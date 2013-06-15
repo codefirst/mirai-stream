@@ -23,29 +23,17 @@
         .container
           %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
             %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href="#") MiraiStream
+          = link_to 'MiraiStream', root_path, class: 'brand'
           .container.nav-collapse
             %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li= link_to "Top", root_path
 
     .container
 
       .row
-        .span9
+        .span12
           = bootstrap_flash
           = yield
-        .span3
-          .well.sidebar-nav
-            %h3 Sidebar
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
 
       %footer
         %p Copyright &copy; 2013 codefirst.org
